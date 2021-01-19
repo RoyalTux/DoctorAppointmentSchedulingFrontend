@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "DoctorAppointmentScheduling"
+  "defaultProject": "DoctorAppointmentScheduling",
+  "cli": {
+    "analytics": "3d2c6507-c6d3-4af4-8ec4-42fe9776bd15"
+  }
 }
