@@ -1,12 +1,8 @@
-<div class="col-md-12">
-    <div class="card card-container">
-      <img
-        id="profile-img"
-        src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
-        class="profile-img-card"
-        width="200"
-        height="200"
-      />
+<div class="col-md-12 d-flex justify-content-center p-3">
+    <div class="card card-container col-md-6">
+        <div class="align-self-center">
+      <h1 class="p-3">Login</h1>
+      </div>
       <form
         *ngIf="!isLoggedIn"
         name="form"
@@ -81,4 +77,4 @@
         Logged in as {{ roles }}.
       </div>
     </div>
-  </div>
+</div>
