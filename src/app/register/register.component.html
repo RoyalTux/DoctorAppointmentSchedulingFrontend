@@ -50,23 +50,23 @@
           </div>
 
         <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
+          <label for="passwordConfirm">Confirm Password</label>
           <input
             type="password"
             class="form-control"
-            name="confirmPassword"
-            [(ngModel)]="form.confirmPassword"
+            name="passwordConfirm"
+            [(ngModel)]="form.passwordConfirm"
             required
             minlength="6"
-            #confirmPassword="ngModel"
+            #passwordConfirm="ngModel"
             pattern="{{ password.value }}"
           />
-          <div class="alert-danger" *ngIf="confirmPassword.errors && f.submitted">
-            <div *ngIf="confirmPassword.errors.required">Password is required</div>
-            <div *ngIf="confirmPassword.errors.minlength">
+          <div class="alert-danger" *ngIf="passwordConfirm.errors && f.submitted">
+            <div *ngIf="passwordConfirm.errors.required">Password is required</div>
+            <div *ngIf="passwordConfirm.errors.minlength">
               Password must be at least 6 characters
             </div>
-            <div *ngIf="confirmPassword.errors.pattern"> Password & Confirm Password does not match.</div>
+            <div *ngIf="passwordConfirm.errors.pattern"> Password & Confirm Password does not match.</div>
           </div>
         </div>
 
@@ -75,7 +75,7 @@
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-          Signup failed!<br />{{ errorMessage }}
+          Signup failed!<br />{{ errorMessage }} {{ errorDetails }}
         </div>
       </form>
   
