@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe(
       data => {
+        debugger;
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
         this.isLoginFailed = false;
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
       },
       err => {
+        debugger;
         this.errorMessage = err.error;
         console.log(this.errorMessage);
         console.log(err);
