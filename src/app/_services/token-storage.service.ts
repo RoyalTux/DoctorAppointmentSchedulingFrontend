@@ -20,6 +20,7 @@ export class TokenStorageService {
   }
 
   public getToken(): string | null {
+
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
@@ -30,7 +31,9 @@ export class TokenStorageService {
 
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
+    
     if (user) {
+
       return JSON.parse(user);
     }
 
