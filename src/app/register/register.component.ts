@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
     password: null,
     passwordConfirm: null
   };
+  isDoctor = false;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -32,9 +33,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { email, password, passwordConfirm } = this.form;
+    debugger;
+    const { email, password, passwordConfirm, isDoctor } = this.form;
 
-    this.authService.register(email, password, passwordConfirm).subscribe(
+    this.authService.register(email, password, passwordConfirm, isDoctor).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;

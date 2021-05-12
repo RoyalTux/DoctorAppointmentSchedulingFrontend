@@ -22,12 +22,17 @@ export class AuthService {
     }, httpOptions);
   }
 
-  register(email: string, password: string, passwordConfirm: string): Observable<any> {
+  register(
+    email: string, 
+    password: string, 
+    passwordConfirm: string, 
+    isDoctor: boolean): Observable<any> {
     
     return this.http.post(AUTH_API + 'SignUp', {
       email,
       password,
-      passwordConfirm
+      passwordConfirm,
+      isDoctor
     }, httpOptions);
   }
 }
