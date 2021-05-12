@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   role: string = '';
-  name: string = '';
+  email: string = '';
 
   constructor(
     private authService: AuthService,
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.user_data = this.tokenStorage.getUser();
       this.role = this.user_data.role;
-      this.name = this.user_data.name;
+      this.email = this.user_data.email;
     }
   }
 
@@ -55,12 +55,12 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.user_data = this.tokenStorage.getUser();
         this.role = this.user_data.role;
-        this.name = this.user_data.name;   
+        this.email = this.user_data.email;   
 
         setTimeout(() => {
           this.reloadPage();
         }, 3000);
-        
+
         this.showSuccess();  
       },
       err => {
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
 
   showSuccess() {
     const options = { opacity: 0.8 };
-    this.toastrService.success('Success!', 'Hello, ' + this.name + '!\nYou logged in as ' + this.role + '.', options);
+    this.toastrService.success('Success!', 'Hello, ' + this.email + '!\nYou logged in as ' + this.role + '.', options);
   }
   
   showError() {

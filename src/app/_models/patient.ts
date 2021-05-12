@@ -1,4 +1,6 @@
 export class Patient{
+    email: string = "No data";
+    role: string = "No data";
     address: string = "No data";
     firstName: string = "No data";
     lastName: string = "No data";

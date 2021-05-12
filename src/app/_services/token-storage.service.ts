@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Doctor } from '../_models/doctor';
+import { Patient } from '../_models/patient';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -31,10 +32,8 @@ export class TokenStorageService {
   }
 
   public getUser(): any {
-    let user_data: Doctor = new Doctor();
-
+  
     let user_token = window.sessionStorage.getItem(USER_KEY);
-
     let jwtData = user_token!.split('.')[1];
     let decodedJwtJsonData = window.atob(jwtData)
     let decodedJwtData = JSON.parse(decodedJwtJsonData);
@@ -42,11 +41,20 @@ export class TokenStorageService {
     let name: string = decodedJwtData.name;
     let role: string = decodedJwtData.role;
 
-    if (name && role) {
+    if(name && role && role == 'doctor'){
+      let user_data: Doctor = new Doctor();
+
       user_data.email = name;
       user_data.role = role;
 
-      // return JSON.parse(user);
+      return user_data;
+    }
+    else if(name && role && role == 'patient'){
+      let user_data: Patient = new Patient();
+
+      user_data.email = name;
+      user_data.role = role;
+
       return user_data;
     }
 
