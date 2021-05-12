@@ -1,11 +1,11 @@
 <div class="container" *ngIf="currentUser; else loggedOut">
     <header class="jumbotron">
       <h1 class="text-center">
-        <strong>{{ currentUser.name }}</strong> profile
+        <strong>{{ currentUser.email }}</strong> profile
       </h1>
     <h3>
       <strong>Email:</strong>
-      {{ currentUser.name }}
+      {{ currentUser.email }}
     </h3>
     <h3>
       <strong>Role:</strong>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Doctor } from '../_models/doctor';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -30,7 +31,7 @@ export class TokenStorageService {
   }
 
   public getUser(): any {
-    let user_data = {};
+    let user_data: Doctor = new Doctor();
 
     let user_token = window.sessionStorage.getItem(USER_KEY);
 
@@ -42,8 +43,8 @@ export class TokenStorageService {
     let role: string = decodedJwtData.role;
 
     if (name && role) {
-      user_data["name"] = name;
-      user_data["role"] = role;
+      user_data.email = name;
+      user_data.role = role;
 
       // return JSON.parse(user);
       return user_data;
