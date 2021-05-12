@@ -24,17 +24,29 @@ export class TokenStorageService {
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user: any): void {
+  public saveUser(user_token: any): void {
     window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user_token));
   }
 
   public getUser(): any {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    
-    if (user) {
+    let user_data = {};
 
-      return JSON.parse(user);
+    let user_token = window.sessionStorage.getItem(USER_KEY);
+
+    let jwtData = user_token!.split('.')[1];
+    let decodedJwtJsonData = window.atob(jwtData)
+    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+
+    let name: string = decodedJwtData.name;
+    let role: string = decodedJwtData.role;
+
+    if (name && role) {
+      user_data["name"] = name;
+      user_data["role"] = role;
+
+      // return JSON.parse(user);
+      return user_data;
     }
 
     return {};

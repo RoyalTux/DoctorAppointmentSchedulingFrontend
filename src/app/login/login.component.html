@@ -70,8 +70,11 @@
         </div>
       </form>
   
-      <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ roles }}.
+      <div class="alert alert-success text-center" *ngIf="isLoggedIn && role">
+        Hello, {{ name }}!
+        <br/>
+        You logged in as {{ role }}.      
+        <p>
       </div>
     </div>
 </div>
