@@ -10,8 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardUserComponent } from './board-user/board-user.component';
+import { DoctorScheduleComponent } from './doctor-schedule/doctor-schedule.component';
+import { PatientScheduleComponent } from './patient-schedule/patient-schedule.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
@@ -24,8 +24,8 @@ import { ToastModule } from 'ng-uikit-pro-standard';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
-    BoardAdminComponent,
-    BoardUserComponent
+    DoctorScheduleComponent,
+    PatientScheduleComponent
   ],
   imports: [
     BrowserModule,

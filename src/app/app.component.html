@@ -5,10 +5,10 @@
         <a href="/home" class="nav-link" routerLink="home">Home </a>
       </li>
       <li class="nav-item" *ngIf="showDoctorSchedule">
-        <a href="/admin" class="nav-link" routerLink="admin">Schedule</a>
+        <a href="/doctor-schedule" class="nav-link" routerLink="doctor-schedule">Schedule</a>
       </li>
       <li class="nav-item"  *ngIf="showPatientSchedule">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Schedule</a>
+        <a href="/patient-schedule" class="nav-link" *ngIf="isLoggedIn" routerLink="patient-schedule">Schedule</a>
       </li>
     </ul>
 
