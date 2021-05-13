@@ -1,0 +1,125 @@
+<div class="col-md-12 d-flex justify-content-center p-3">
+    <div class="card card-container col-md-12">
+        <div class="align-self-center">
+            <h1 class="p-3">Edit your profile details</h1>
+        </div>
+        <form
+        *ngIf="isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate>
+
+            <div class="col-md-12 row p-3">
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        name="firstName"
+                        [(ngModel)]="form.firstName"
+                        #firstName="ngModel"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last name</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        name="lastName"
+                        [(ngModel)]="form.lastName"
+                        #lastName="ngModel"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        name="country"
+                        [(ngModel)]="form.country"
+                        #country="ngModel"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        name="city"
+                        [(ngModel)]="form.city"
+                        #city="ngModel"
+                        />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        name="bio"
+                        [(ngModel)]="form.bio"
+                        #bio="ngModel"
+                        />
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone number</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        name="phoneNumber"
+                        [(ngModel)]="form.phoneNumber"
+                        #phoneNumber="ngModel"
+                        />
+                    </div>
+            
+                    <div *ngIf="role == 'doctor'">
+                        <div class="form-group">
+                            <label for="experienceYears">Experience years</label>
+                            <input
+                            type="number"
+                            min="0"
+                            max="100"
+                            class="form-control"
+                            name="experienceYears"
+                            [(ngModel)]="form.experienceYears"
+                            #experienceYears="ngModel"
+                            />
+                        </div>
+                    </div>
+            
+                    <div *ngIf="role == 'patient'">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input
+                            type="text"
+                            class="form-control"
+                            name="address"
+                            [(ngModel)]="form.address"
+                            #address="ngModel"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-l-r-40">
+                <div class="col text-center">
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block">
+                        Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

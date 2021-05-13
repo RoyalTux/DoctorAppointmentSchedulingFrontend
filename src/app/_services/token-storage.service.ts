@@ -9,6 +9,8 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
+  user_data = {};
+
   constructor() { }
 
   signOut(): void {
@@ -21,9 +23,14 @@ export class TokenStorageService {
     console.log(token);
   }
 
+  // public getToken(): string | null {
+
+  //   return window.sessionStorage.getItem(TOKEN_KEY);
+  // }
+
   public getToken(): string | null {
 
-    return window.sessionStorage.getItem(TOKEN_KEY);
+    return window.sessionStorage.getItem(USER_KEY);
   }
 
   public saveUser(user_token: any): void {
@@ -40,23 +47,32 @@ export class TokenStorageService {
 
     let name: string = decodedJwtData.name;
     let role: string = decodedJwtData.role;
+    let sub: string = decodedJwtData.sub;
 
-    if(name && role && role == 'doctor'){
-      let user_data: Doctor = new Doctor();
+    if(name && role && sub){
+      this.user_data['email'] = name;
+      this.user_data['role'] = role;
+      this.user_data['sub'] = sub;
 
-      user_data.email = name;
-      user_data.role = role;
-
-      return user_data;
+      return this.user_data;
     }
-    else if(name && role && role == 'patient'){
-      let user_data: Patient = new Patient();
 
-      user_data.email = name;
-      user_data.role = role;
+    // if(name && role && role == 'doctor'){
+    //   let user_data: Doctor = new Doctor();
 
-      return user_data;
-    }
+    //   user_data.email = name;
+    //   user_data.role = role;
+
+    //   return user_data;
+    // }
+    // else if(name && role && role == 'patient'){
+    //   let user_data: Patient = new Patient();
+
+    //   user_data.email = name;
+    //   user_data.role = role;
+
+    //   return user_data;
+    // }
 
     return {};
   }

@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { PatientScheduleComponent } from './patient-schedule/patient-schedule.component';
 import { DoctorScheduleComponent } from './doctor-schedule/doctor-schedule.component';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'profile-edit', component: ProfileEditComponent },
   { path: 'patient-schedule', component: PatientScheduleComponent },
   { path: 'doctor-schedule', component: DoctorScheduleComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
