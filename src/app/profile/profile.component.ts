@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { UserService } from '../_services/user.service';
+import User from '../_models/user';
 
 @Component({
   selector: 'app-profile',
@@ -9,8 +10,9 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  errorMessage: any;
   currentUser: any;
-  userData: any;
+  userData: User = new User();
 
   constructor(
     private tokenService: TokenStorageService,
@@ -18,12 +20,18 @@ export class ProfileComponent implements OnInit {
     private userService: UserService) { }
 
   ngOnInit(): void {
-    debugger;
     this.currentUser = this.tokenService.getUser();
-    let userId = this.currentUser.sub;
-    let token = this.tokenService.getToken()!.replace("\"", "");
-
-    console.log(this.userData);
+    console.log(this.currentUser);
+    this.userService.getPatientById(this.currentUser.sub).subscribe(
+        data => {
+          this.userData = data;
+          console.log(this.userData);
+        },
+        err => {
+          this.errorMessage = JSON.parse(err.error).message;
+          console.log(this.errorMessage);
+        }
+      );
   }
 
   changeProfileData(){

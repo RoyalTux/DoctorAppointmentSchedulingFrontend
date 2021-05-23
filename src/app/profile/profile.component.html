@@ -1,7 +1,7 @@
 <div class="container p-3" *ngIf="currentUser; else loggedOut">
   <header class="jumbotron">
     <h1 class="text-center">
-      Profile
+      <b>User:</b> {{ currentUser.email }}
     </h1>
 
     <div class="col-md-12 row p-3">
@@ -12,49 +12,50 @@
         </h3>
         <h3>
           <strong>First name:</strong>
-          {{ currentUser.firstName }}
+          {{ userData.firstName }}
         </h3>
         <h3>
           <strong>Last name:</strong>
-          {{ currentUser.lastName }}
+          {{ userData.lastName }}
         </h3>
         <h3>
           <strong>Country:</strong>
-          {{ currentUser.country }}
+          {{ userData.country }}
         </h3>
         <h3>
           <strong>City:</strong>
-          {{ currentUser.city }}
+          {{ userData.city }}
         </h3>
       </div>
 
       <div class="col-md-6">
         <h3>
           <strong>Bio:</strong>
-          {{ currentUser.bio }}
+          {{ userData.bio }}
         </h3>
         <h3>
           <strong>Phone number:</strong>
-          {{ currentUser.phoneNumber }}
+          {{ userData.phoneNumber }}
         </h3>
 
         <div *ngIf="currentUser.role == 'doctor'">
           <h3>
             <strong>Experience years:</strong>
-            {{ currentUser.experienceYears }}
+            {{ userData.experienceYears }}
           </h3>
           <h3>
             <strong>Rating:</strong>
-            {{ currentUser.rating }}
+            {{ userData.rating }}
           </h3>
         </div>
     
         <div *ngIf="currentUser.role == 'patient'">
           <h3>
             <strong>Address:</strong>
-            {{ currentUser.address }}
+            {{ userData.address }}
           </h3>
         </div>
+
       </div>
     </div>
 

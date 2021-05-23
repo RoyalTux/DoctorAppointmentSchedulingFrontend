@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Doctor } from '../_models/doctor';
-import { Patient } from '../_models/patient';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -35,7 +33,7 @@ export class TokenStorageService {
 
   public saveUser(user_token: any): void {
     window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user_token));
+    window.sessionStorage.setItem(USER_KEY, user_token);
   }
 
   public getUser(): any {
@@ -56,23 +54,6 @@ export class TokenStorageService {
 
       return this.user_data;
     }
-
-    // if(name && role && role == 'doctor'){
-    //   let user_data: Doctor = new Doctor();
-
-    //   user_data.email = name;
-    //   user_data.role = role;
-
-    //   return user_data;
-    // }
-    // else if(name && role && role == 'patient'){
-    //   let user_data: Patient = new Patient();
-
-    //   user_data.email = name;
-    //   user_data.role = role;
-
-    //   return user_data;
-    // }
 
     return {};
   }
