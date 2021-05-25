@@ -13,11 +13,15 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getPatients(): Observable<User[]> {
-    return this.http.get<User[]>("https://localhost:44384/api/Patients");
+    return this.http.get<User[]>(API_URL + "Patients");
   }
 
   getPatientById(id: string): Observable<User> {
-    return this.http.get<User>("https://localhost:44384/api/Patients/" + id);
+    return this.http.get<User>(API_URL + "Patients/" + id);
+  }
+
+  getDoctorById(id: string): Observable<User> {
+    return this.http.get<User>(API_URL + "Doctors/" + id);
   }
 
   // getPublicContent(): Observable<any> {

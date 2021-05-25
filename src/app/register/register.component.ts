@@ -33,12 +33,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    debugger;
+    this.form.email = this.form.email.toLowerCase();
     const { email, password, passwordConfirm, isDoctor } = this.form;
 
     this.authService.register(email, password, passwordConfirm, isDoctor).subscribe(
       data => {
-        console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.showSuccess();

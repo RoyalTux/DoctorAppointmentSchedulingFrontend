@@ -22,7 +22,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
     console.log(this.currentUser);
-    this.userService.getPatientById(this.currentUser.sub).subscribe(
+
+    if(this.currentUser.role == 'doctor'){
+      this.userService.getDoctorById(this.currentUser.sub).subscribe(
         data => {
           this.userData = data;
           console.log(this.userData);
@@ -32,6 +34,19 @@ export class ProfileComponent implements OnInit {
           console.log(this.errorMessage);
         }
       );
+    }
+    else if(this.currentUser.role == 'patient'){
+      this.userService.getPatientById(this.currentUser.sub).subscribe(
+        data => {
+          this.userData = data;
+          console.log(this.userData);
+        },
+        err => {
+          this.errorMessage = JSON.parse(err.error).message;
+          console.log(this.errorMessage);
+        }
+      );
+    }
   }
 
   changeProfileData(){
