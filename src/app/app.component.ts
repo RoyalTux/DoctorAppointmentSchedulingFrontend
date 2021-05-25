@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
   showDoctorSchedule = false;
   showPatientSchedule = false;
   email?: string;
+  cookieMessage: string = "This website uses cookies to ensure you get the best experience on our website.";
+  cookieDismiss: string = "Accept";
+  cookieLinkText: string = "Learn more";
+  
 
   constructor(private tokenStorageService: TokenStorageService, private toastrService: ToastService) { }
 
@@ -27,6 +31,26 @@ export class AppComponent implements OnInit {
       this.showPatientSchedule = this.role == 'patient';
 
       this.email = user.name;
+
+      let cc = window as any;
+       cc.cookieconsent.initialise({
+         palette: {
+           popup: {
+             background: "#164969"
+           },
+           button: {
+             background: "#ffe000",
+             text: "#164969"
+           }
+         },
+         theme: "classic",
+         content: {
+           message: this.cookieMessage,
+           dismiss: this.cookieDismiss,
+           link: this.cookieLinkText,
+           href: "https://gdpr-info.eu/" 
+         }
+       });
     }
   }
 

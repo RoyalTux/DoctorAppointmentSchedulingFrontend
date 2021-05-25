@@ -24,6 +24,14 @@ export class UserService {
     return this.http.get<User>(API_URL + "Doctors/" + id);
   }
 
+  putPatientProfileById(id: string, patient: User): Observable<User>{
+    return this.http.put<User>(API_URL + "Patients/" + id, patient);
+  }
+
+  putDoctorProfileById(id: string, doctor: User): Observable<User>{
+    return this.http.put<User>(API_URL + "Doctors/" + id, doctor);
+  }
+
   // getPublicContent(): Observable<any> {
 
   //   return this.http.get(API_URL + 'all', { responseType: 'text' });

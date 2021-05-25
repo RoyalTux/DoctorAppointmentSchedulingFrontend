@@ -8,7 +8,7 @@
         name="form"
         (ngSubmit)="f.form.valid && onSubmit()"
         #f="ngForm"
-        novalidate>
+        validate>
 
             <div class="col-md-12 row p-3">
                 <div class="col-md-6">
@@ -21,7 +21,19 @@
                         name="firstName"
                         [(ngModel)]="form.firstName"
                         #firstName="ngModel"
+                        required
+                        minlength="1"
+                        maxlength="50"
                         />
+                        <div class="alert-danger" *ngIf="firstName.errors && f.submitted">
+                            <div *ngIf="firstName.errors.required">First name is required</div>
+                            <div *ngIf="firstName.errors.minlength">
+                                First name must be at least 1 character
+                            </div>
+                            <div *ngIf="firstName.errors.maxlength">
+                                First name must be max 50 characters
+                              </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -32,7 +44,19 @@
                         name="lastName"
                         [(ngModel)]="form.lastName"
                         #lastName="ngModel"
+                        required
+                        minlength="1"
+                        maxlength="50"
                         />
+                        <div class="alert-danger" *ngIf="lastName.errors && f.submitted">
+                            <div *ngIf="lastName.errors.required">Last name is required</div>
+                            <div *ngIf="lastName.errors.minlength">
+                                Last name must be at least 1 character
+                            </div>
+                            <div *ngIf="lastName.errors.maxlength">
+                                Last name must be max 50 characters
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -43,7 +67,19 @@
                         name="country"
                         [(ngModel)]="form.country"
                         #country="ngModel"
+                        required
+                        minlength="1"
+                        maxlength="50"
                         />
+                        <div class="alert-danger" *ngIf="country.errors && f.submitted">
+                            <div *ngIf="country.errors.required">Country is required</div>
+                            <div *ngIf="country.errors.minlength">
+                                Country must be at least 1 character
+                            </div>
+                            <div *ngIf="country.errors.maxlength">
+                                Country must be max 50 characters
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -54,7 +90,19 @@
                         name="city"
                         [(ngModel)]="form.city"
                         #city="ngModel"
+                        required
+                        minlength="1"
+                        maxlength="50"
                         />
+                        <div class="alert-danger" *ngIf="city.errors && f.submitted">
+                            <div *ngIf="city.errors.required">City is required</div>
+                            <div *ngIf="city.errors.minlength">
+                                City must be at least 1 character
+                            </div>
+                            <div *ngIf="city.errors.maxlength">
+                                City must be max 50 characters
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -67,7 +115,19 @@
                         name="bio"
                         [(ngModel)]="form.bio"
                         #bio="ngModel"
+                        required
+                        minlength="1"
+                        maxlength="500"
                         />
+                        <div class="alert-danger" *ngIf="bio.errors && f.submitted">
+                            <div *ngIf="bio.errors.required">Bio is required</div>
+                            <div *ngIf="bio.errors.minlength">
+                                Bio must be at least 1 character
+                            </div>
+                            <div *ngIf="bio.errors.maxlength">
+                                Bio must be max 500 characters
+                            </div>
+                        </div>
                     </div>
                 
                     <div class="form-group">
@@ -78,7 +138,19 @@
                         name="phoneNumber"
                         [(ngModel)]="form.phoneNumber"
                         #phoneNumber="ngModel"
+                        required
+                        minlength="1"
+                        maxlength="20"
                         />
+                        <div class="alert-danger" *ngIf="phoneNumber.errors && f.submitted">
+                            <div *ngIf="phoneNumber.errors.required">Phone number is required</div>
+                            <div *ngIf="phoneNumber.errors.minlength">
+                                Phone number must be at least 1 character
+                            </div>
+                            <div *ngIf="phoneNumber.errors.maxlength">
+                                Phone number must be max 20 characters
+                            </div>
+                        </div>
                     </div>
             
                     <div *ngIf="role == 'doctor'">
@@ -88,11 +160,23 @@
                             type="number"
                             min="0"
                             max="100"
+                            maxlength="2"
                             class="form-control"
                             name="experienceYears"
                             [(ngModel)]="form.experienceYears"
                             #experienceYears="ngModel"
+                            onkeydown="return false"
+                            required
                             />
+                            <div class="alert-danger" *ngIf="experienceYears.errors && f.submitted">
+                                <div *ngIf="experienceYears.errors.required">Experience years is required</div>
+                                <div *ngIf="experienceYears.errors.min">
+                                    Experience years can't be less than 0
+                                </div>
+                                <div *ngIf="experienceYears.errors.max">
+                                    Experience years can't be more than 100
+                                </div>
+                            </div>
                         </div>
                     </div>
             
@@ -105,7 +189,19 @@
                             name="address"
                             [(ngModel)]="form.address"
                             #address="ngModel"
+                            required
+                            minlength="1"
+                            maxlength="50"
                             />
+                            <div class="alert-danger" *ngIf="address.errors && f.submitted">
+                                <div *ngIf="address.errors.required">Address is required</div>
+                                <div *ngIf="address.errors.minlength">
+                                    Address must be at least 1 character
+                                </div>
+                                <div *ngIf="address.errors.maxlength">
+                                    Address must be max 50 characters
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

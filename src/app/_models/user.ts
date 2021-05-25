@@ -1,7 +1,7 @@
 import { Rating } from "./rating";
 
 export default class User{
-    address: string = "";
+    address?: string = "";
     bio: string = "";
     city: string = "";
     country: string = "";
@@ -9,6 +9,6 @@ export default class User{
     id: string = "";
     lastName: string = "";
     phoneNumber: string = "";
-    experienceYears: number = 0;
-    rating: Rating = Rating.NO_RATING;
+    experienceYears?: number = 0;
+    rating?: Rating = Rating.NO_RATING;
 }

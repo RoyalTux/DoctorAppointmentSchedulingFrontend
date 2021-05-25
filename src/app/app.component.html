@@ -1,5 +1,5 @@
-<div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-primary">
+<div id="app" class="wrapper">
+  <nav class="navbar navbar-expand navbar-dark bg-primary page-header">
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
         <a href="/home" class="nav-link" routerLink="home">Home </a>
@@ -31,11 +31,11 @@
     </ul>
   </nav>
 
-  <div class="container">
+  <div class="container page-body">
     <router-outlet></router-outlet>
   </div>
 
-  <footer class="bg-light text-center text-white">
+  <footer class="bg-light text-center text-white page-footer">
     <div class="text-center p-3 bg-primary">
       © 2021 Hospital Victoria La Salle. 
       Contact us: <i>phone:</i> (+52) 834 184 9900 <i>email:</i> contacto@hospitalvictorialasalle.com
