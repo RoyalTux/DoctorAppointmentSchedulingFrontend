@@ -8,7 +8,7 @@ import { ToastService } from 'ng-uikit-pro-standard';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  private role: string = '';
+  role: string = '';
   isLoggedIn = false;
   showDoctorSchedule = false;
   showPatientSchedule = false;

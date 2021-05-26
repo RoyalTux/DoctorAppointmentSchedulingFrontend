@@ -109,7 +109,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="bio">Bio</label>
-                        <input
+                        <textarea
                         type="text"
                         class="form-control"
                         name="bio"
@@ -118,7 +118,8 @@
                         required
                         minlength="1"
                         maxlength="500"
-                        />
+                        rows="2">
+                        </textarea>
                         <div class="alert-danger" *ngIf="bio.errors && f.submitted">
                             <div *ngIf="bio.errors.required">Bio is required</div>
                             <div *ngIf="bio.errors.minlength">

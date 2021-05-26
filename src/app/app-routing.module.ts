@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { PatientScheduleComponent } from './patient-schedule/patient-schedule.component';
 import { DoctorScheduleComponent } from './doctor-schedule/doctor-schedule.component';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'profile-edit', component: ProfileEditComponent },
   { path: 'patient-schedule', component: PatientScheduleComponent },
   { path: 'doctor-schedule', component: DoctorScheduleComponent },
+  { path: 'doctors-list', component: DoctorsListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

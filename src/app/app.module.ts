@@ -17,6 +17,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 import { ToastModule } from 'ng-uikit-pro-standard';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     ProfileComponent,
     DoctorScheduleComponent,
     PatientScheduleComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    DoctorsListComponent
   ],
   imports: [
     BrowserModule,

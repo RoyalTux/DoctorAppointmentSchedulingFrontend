@@ -10,6 +10,9 @@
       <li class="nav-item"  *ngIf="showPatientSchedule">
         <a href="/patient-schedule" class="nav-link" *ngIf="isLoggedIn" routerLink="patient-schedule">Schedule</a>
       </li>
+      <li class="nav-item"  *ngIf="role == 'patient'">
+        <a href="/doctors-list" class="nav-link" *ngIf="isLoggedIn" routerLink="doctors-list">Our doctors</a>
+      </li>
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">

@@ -16,6 +16,10 @@ export class UserService {
     return this.http.get<User[]>(API_URL + "Patients");
   }
 
+  getDoctors(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + "Doctors");
+  }
+
   getPatientById(id: string): Observable<User> {
     return this.http.get<User>(API_URL + "Patients/" + id);
   }
