@@ -4,21 +4,27 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-import { PatientScheduleComponent } from './patient-schedule/patient-schedule.component';
-import { DoctorScheduleComponent } from './doctor-schedule/doctor-schedule.component';
-import { DoctorsListComponent } from './doctors-list/doctors-list.component';
+import { PatientScheduleComponent } from './patient/patient-schedule/patient-schedule.component';
+import { DoctorScheduleComponent } from './doctor/doctor-schedule/doctor-schedule.component';
+import { DoctorsListComponent } from './doctor/doctors-list/doctors-list.component';
+import { AuthCallbackDirective } from './auth/auth-callback/auth-callback.directive';
+import { PatientProfileEditComponent } from './patient/patient-profile-edit/patient-profile-edit.component';
+import { PatientProfileComponent } from './patient/patient-profile/patient-profile.component';
+import { DoctorProfileComponent } from './doctor/doctor-profile/doctor-profile.component';
+import { DoctorProfileEditComponent } from './doctor/doctor-profile-edit/doctor-profile-edit.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'profile-edit', component: ProfileEditComponent },
+  { path: 'patient-profile', component: PatientProfileComponent },
+  { path: 'patient-profile-edit', component: PatientProfileEditComponent },
   { path: 'patient-schedule', component: PatientScheduleComponent },
   { path: 'doctor-schedule', component: DoctorScheduleComponent },
   { path: 'doctors-list', component: DoctorsListComponent },
+  { path: 'doctor-profile', component: DoctorProfileComponent },
+  { path: 'doctor-profile-edit', component: DoctorProfileEditComponent },
+ { path: 'auth-callback', component: AuthCallbackDirective },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

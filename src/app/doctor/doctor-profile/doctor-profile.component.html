@@ -1,0 +1,61 @@
+<div class="container p-3" *ngIf="currentDoctor; else loggedOut">
+  <header class="jumbotron">
+    <h1 class="text-center">
+      <b>Hello, </b> {{ currentDoctor.firstName }}
+    </h1>
+
+    <div class="col-md-12 row p-3">
+      <div class="col-md-6 word-break">
+        <h3 [style.color]="doctorData.firstName == 'Not indicated!' ? 'red': 'black'">
+          <strong>First name:</strong>
+          {{ doctorData.firstName }}
+        </h3>
+        <h3 [style.color]="doctorData.lastName == 'Not indicated!' ? 'red': 'black'">
+          <strong>Last name:</strong>
+          {{ doctorData.lastName }}
+        </h3>
+        <h3 [style.color]="doctorData.country == 'Not indicated!' ? 'red': 'black'">
+          <strong>Country:</strong>
+          {{ doctorData.country }}
+        </h3>
+        <h3 [style.color]="doctorData.city == 'Not indicated!' ? 'red': 'black'">
+          <strong>City:</strong>
+          {{ doctorData.city }}
+        </h3>
+      </div>
+
+      <div class="col-md-6 word-break">
+        <h3 [style.color]="doctorData.bio == 'Not indicated!' ? 'red': 'black'">
+          <strong>Bio:</strong>
+          {{ doctorData.bio }}
+        </h3>
+        <h3 [style.color]="doctorData.phoneNumber == 'Not indicated!' ? 'red': 'black'">
+          <strong>Phone number:</strong>
+          {{ doctorData.phoneNumber }}
+        </h3>
+        <h3>
+          <strong>Experience years:</strong>
+          {{ doctorData.experienceYears }}
+        </h3>
+        <h3>
+          <strong>Rating:</strong>
+          {{ doctorData.rating }}
+        </h3>
+      </div>
+    </div>
+
+    <div class="row m-l-r-40">
+      <div class="col text-center">
+        <button class="btn btn-primary btn-block" (click)="changeProfileData()">
+          Change profile data
+        </button>
+      </div>
+    </div>
+
+  </header>
+</div>
+  
+<ng-template #loggedOut>
+  Please login!
+</ng-template>
+

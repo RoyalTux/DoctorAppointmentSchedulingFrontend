@@ -9,15 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { DoctorScheduleComponent } from './doctor-schedule/doctor-schedule.component';
-import { PatientScheduleComponent } from './patient-schedule/patient-schedule.component';
-
-import { authInterceptorProviders } from './_helpers/auth.interceptor';
-
 import { ToastModule } from 'ng-uikit-pro-standard';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-import { DoctorsListComponent } from './doctors-list/doctors-list.component';
+import { DoctorModule } from './doctor/doctor.module';
+import { authInterceptorProviders } from './shared/interceptors/auth.interceptor';
+import { AuthCallbackDirective } from './auth/auth-callback/auth-callback.directive';
+import { PatientModule } from './patient/patient.module';
 
 @NgModule({
   declarations: [
@@ -25,11 +21,7 @@ import { DoctorsListComponent } from './doctors-list/doctors-list.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ProfileComponent,
-    DoctorScheduleComponent,
-    PatientScheduleComponent,
-    ProfileEditComponent,
-    DoctorsListComponent
+    AuthCallbackDirective
   ],
   imports: [
     BrowserModule,
@@ -37,7 +29,9 @@ import { DoctorsListComponent } from './doctors-list/doctors-list.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    DoctorModule,
+    PatientModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

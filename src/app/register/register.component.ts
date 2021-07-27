@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../_services/auth.service';
 import { ToastService } from 'ng-uikit-pro-standard';
+import { OidcAuthService } from '../shared/services/auth/oidc-auth.service';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,8 @@ export class RegisterComponent implements OnInit {
   loginUrl: string = '';
 
   constructor(
-    private authService: AuthService,
+    private oidcAuthService: OidcAuthService,
+    // private authService: AuthService,
     private toastrService: ToastService,
     private route: ActivatedRoute,
     private router: Router) { }
@@ -36,20 +37,22 @@ export class RegisterComponent implements OnInit {
     this.form.email = this.form.email.toLowerCase();
     const { email, password, passwordConfirm, isDoctor } = this.form;
 
-    this.authService.register(email, password, passwordConfirm, isDoctor).subscribe(
-      data => {
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-        this.showSuccess();
-        this.router.navigateByUrl(this.loginUrl);
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.errorDetails = err.error.detail;
-        this.isSignUpFailed = true;
-        this.showError();
-      }
-    );
+    // this.oidcAuthService.signIn();
+
+  //   this.authService.register(email, password, passwordConfirm, isDoctor).subscribe(
+  //     data => {
+  //       this.isSuccessful = true;
+  //       this.isSignUpFailed = false;
+  //       this.showSuccess();
+  //       this.router.navigateByUrl(this.loginUrl);
+  //     },
+  //     err => {
+  //       this.errorMessage = err.error.message;
+  //       this.errorDetails = err.error.detail;
+  //       this.isSignUpFailed = true;
+  //       this.showError();
+  //     }
+  //   );
   }
 
   showSuccess() {

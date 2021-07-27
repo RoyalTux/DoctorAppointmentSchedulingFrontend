@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../_services/auth.service';
-import { TokenStorageService } from '../_services/token-storage.service';
+import { TokenStorageService } from '../shared/services/token-old/token-storage.service';
 import { ToastService } from 'ng-uikit-pro-standard';
 
 @Component({
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
   email: string = '';
 
   constructor(
-    private authService: AuthService,
+    // private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private route: ActivatedRoute,
     private router: Router,
@@ -46,30 +45,30 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const { email, password } = this.form;
 
-    this.authService.login(email, password).subscribe(
-      data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.user_data = this.tokenStorage.getUser();
-        this.role = this.user_data.role;
-        this.email = this.user_data.email;   
+    // this.authService.login(email, password).subscribe(
+    //   data => {
+    //     this.tokenStorage.saveToken(data.accessToken);
+    //     this.tokenStorage.saveUser(data);
+    //     this.isLoginFailed = false;
+    //     this.isLoggedIn = true;
+    //     this.user_data = this.tokenStorage.getUser();
+    //     this.role = this.user_data.role;
+    //     this.email = this.user_data.email;   
 
-        setTimeout(() => {
-          this.reloadPage();
-        }, 3000);
+    //     setTimeout(() => {
+    //       this.reloadPage();
+    //     }, 3000);
 
-        this.showSuccess();  
-      },
-      err => {
-        this.errorMessage = err.error;
-        console.log(this.errorMessage);
-        console.log(err);
-        this.isLoginFailed = true;
-        this.showError();
-      }
-    );
+    //     this.showSuccess();  
+    //   },
+    //   err => {
+    //     this.errorMessage = err.error;
+    //     console.log(this.errorMessage);
+    //     console.log(err);
+    //     this.isLoginFailed = true;
+    //     this.showError();
+    //   }
+    // );
 
     this.router.navigateByUrl(this.returnUrl);
   }

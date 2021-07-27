@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from './_services/token-storage.service';
+import { TokenStorageService } from './shared/services/token-old/token-storage.service';
 import { ToastService } from 'ng-uikit-pro-standard';
 
 @Component({

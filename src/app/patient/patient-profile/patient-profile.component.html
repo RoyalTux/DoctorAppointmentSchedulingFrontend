@@ -1,0 +1,59 @@
+<div class="container p-3" *ngIf="currentPatient; else loggedOut">
+  <header class="jumbotron">
+    <h1 class="text-center">
+      <b>Hello, </b> {{ currentPatient.firstName }}
+    </h1>
+
+    <div class="col-md-12 row p-3">
+      <div class="col-md-6 word-break">
+        <h3 [style.color]="patientData.firstName == 'Not indicated!' ? 'red': 'black'">
+          <strong>First name:</strong>
+          {{ patientData.firstName }}
+        </h3>
+        <h3 [style.color]="patientData.lastName == 'Not indicated!' ? 'red': 'black'">
+          <strong>Last name:</strong>
+          {{ patientData.lastName }}
+        </h3>
+        <h3 [style.color]="patientData.country == 'Not indicated!' ? 'red': 'black'">
+          <strong>Country:</strong>
+          {{ patientData.country }}
+        </h3>
+        <h3 [style.color]="patientData.city == 'Not indicated!' ? 'red': 'black'">
+          <strong>City:</strong>
+          {{ patientData.city }}
+        </h3>
+      </div>
+
+      <div class="col-md-6 word-break">
+        <h3 [style.color]="patientData.bio == 'Not indicated!' ? 'red': 'black'">
+          <strong>Bio:</strong>
+          {{ patientData.bio }}
+        </h3>
+        <h3 [style.color]="patientData.phoneNumber == 'Not indicated!' ? 'red': 'black'">
+          <strong>Phone number:</strong>
+          {{ patientData.phoneNumber }}
+        </h3>
+    
+        <h3 [style.color]="patientData.address == 'Not indicated!' ? 'red': 'black'">
+          <strong>Address:</strong>
+          {{ patientData.address }}
+        </h3>
+
+      </div>
+    </div>
+
+    <div class="row m-l-r-40">
+      <div class="col text-center">
+        <button class="btn btn-primary btn-block" (click)="changeProfileData()">
+          Change profile data
+        </button>
+      </div>
+    </div>
+
+  </header>
+</div>
+  
+<ng-template #loggedOut>
+  Please login!
+</ng-template>
+
